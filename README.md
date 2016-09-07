@@ -1,6 +1,11 @@
 # Nightwatch Testdroid Example
 
 ## Setup
+0) Install Gulp
+    ```sh
+    $ npm install -g gulp
+    ```
+
 1) Install NPM Dependencies
     ```sh
     $ npm install
