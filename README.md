@@ -1,19 +1,19 @@
 # Nightwatch Testdroid Example
 
 ## Setup
-0. Install Gulp
+* Install Gulp
 
 	```
 	$ npm install -g gulp
 	```
 
-1. Install NPM Dependencies
+* Install NPM Dependencies
 
 	```
 	$ npm install
 	```
     
-2. Add your apiKey to ./.credentials.json
+* Add your apiKey to ./.credentials.json
 
    Create a file called ".credentials.json" and add your testdroid apiKey to it as described below:
 	
@@ -22,7 +22,7 @@
 	    }
 
 
-3. Modify the nightwatch.json-file according to your project
+* Modify the nightwatch.json-file according to your project
 
 ## Run the test 
 
