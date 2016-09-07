@@ -1,0 +1,48 @@
+{
+    "src_folders": ["tests"],
+    "output_folder": "./tests/reports",
+    "custom_commands_path": "",
+    "custom_assertions_path": "",
+    "page_objects_path": "",
+    "globals_path": "",
+    "test_settings": {
+        "testdroid_ios": {
+            "launch_url": "http://appium.testdroid.com:80/wd/hub",
+            "selenium_port": 80,
+            "selenium_host": "appium.testdroid.com",
+            "screenshots": {
+                "enabled": false,
+                "path": ""
+            },
+            "desiredCapabilities": {
+                "testdroid_apiKey": "<insert_your_apiKey_to_credentials_file>",
+                "testdroid_target": "safari",
+                "testdroid_project": "Nightwatch_Example_iOS",
+                "testdroid_testrun": "TestRun_iOS",
+                "testdroid_device": "Apple iPhone 5 A1429 9.2.1",
+                "platformName": "iOS",
+                "deviceName": "Apple iPhone 5 A1429 9.2.1",
+                "browserName": "safari"
+            }
+        },
+        "testdroid_android": {
+            "launch_url": "http://appium.testdroid.com:80/wd/hub",
+            "selenium_port": 80,
+            "selenium_host": "appium.testdroid.com",
+            "screenshots": {
+                "enabled": false,
+                "path": ""
+            },
+            "desiredCapabilities": {
+                "testdroid_apiKey": "<insert_your_apiKey_to_credentials_file>",
+                "testdroid_target": "chrome",
+                "testdroid_project": "Nightwatch_Example_iOS_Android",
+                "testdroid_testrun": "TestRun_Android",
+                "testdroid_device": "LG Google Nexus 5 6.0.1 -US",
+                "deviceName": "LG Google Nexus 5 6.0.1 -US",
+                "platformName": "Android",
+                "browserName": "chrome"
+            }
+        }
+    }
+}
