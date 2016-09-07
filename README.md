@@ -2,14 +2,15 @@
 
 ## Setup
 0) Install Gulp
-    ```sh
+    ```
     $ npm install -g gulp
     ```
 
 1) Install NPM Dependencies
-    ```sh
+    ```
     $ npm install
     ```
+    
 2) Add your apiKey to ./.credentials.json
 
     Create a file called ".credentials.json" and add your testdroid apiKey to it as described below:
