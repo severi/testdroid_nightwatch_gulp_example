@@ -15,7 +15,7 @@
     
 * Add your apiKey to ./.credentials.json
 
-   Create a file called ".credentials.json" and add your testdroid apiKey to it as described below:
+   Create a file called ".credentials.json" in the project's root and add your testdroid apiKey to it as described below:
 	
 	    {
 	        "apiKey": "YOUR_TESTDROID_CLOUD_APIKEY"
