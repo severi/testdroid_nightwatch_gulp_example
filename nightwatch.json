@@ -36,7 +36,7 @@
             "desiredCapabilities": {
                 "testdroid_apiKey": "<insert_your_apiKey_to_credentials_file>",
                 "testdroid_target": "chrome",
-                "testdroid_project": "Nightwatch_Example_iOS_Android",
+                "testdroid_project": "Nightwatch_Example_Android",
                 "testdroid_testrun": "TestRun_Android",
                 "testdroid_device": "LG Google Nexus 5 6.0.1 -US",
                 "deviceName": "LG Google Nexus 5 6.0.1 -US",
