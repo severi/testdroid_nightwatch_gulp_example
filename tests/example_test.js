@@ -4,7 +4,7 @@ module.exports = {
         browser
             .url('http://testdroid.com/')
             .waitForElementVisible('body', 1000)
-            .assert.title('Testdroid - Mobile App Testing on Android and iOS Devices')
+            .assert.title('Mobile DevOps for App Testing and Monitoring | Bitbar')
             .end();
     }
 };
