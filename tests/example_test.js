@@ -4,7 +4,7 @@ module.exports = {
         browser
             .url('http://testdroid.com/')
             .waitForElementVisible('body', 1000)
-            .assert.title('Mobile DevOps for App Testing and Monitoring | Bitbar')
+            .assert.title('Mobile App Testing on Thousands of Devices | Bitbar Testing')
             .end();
     }
 };
