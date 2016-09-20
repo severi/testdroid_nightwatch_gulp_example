@@ -1,29 +1,57 @@
 #!/bin/bash
 
-## Cloud setup
-echo "Starting Appium ..."
+changeNpmCacheLocation(){
+	echo "Change npm cache to .npm_cache folder..."
+	mkdir .npm_cache
+	npm config set cache ~/.npm_cache
+}
 
-/opt/appium/appium/bin/appium.js --log-no-colors --log-timestamp --command-timeout 120 >appium.log 2>&1 &
+startAppium(){
+	if [ "$(uname)" == "Darwin" ]; then
+	    echo "Starting Appium on Mac..."
+		# /opt/appium/bin/appium.js -U ${UDID} --log-no-colors --log-timestamp --command-timeout 120 >appium.log 2>&1 &    
+		/opt/appium/bin/appium.js -U ${UDID} --log-no-colors --log-timestamp  >appium.log 2>&1 &     
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+	    echo "Starting Appium on Linux..."
+		/opt/appium/appium/bin/appium.js --log-no-colors --log-timestamp >appium.log 2>&1 &
+	else
+		echo "Operating system not supported, exiting..."
+		exit 1
+	fi
 
-# Wait for appium to fully launch
-sleep 10
+	sleep 10
+	ps -ef|grep appium
+}
 
-ps -ef|grep appium
+initializeTestRun(){
+	echo "Extracting tests.zip..."
+	unzip tests.zip
+	echo "Installing Project Dependencies..."
+	npm install
+	rm -f tests/reports/*
+}
 
-mkdir .npm_cache
-npm config set cache ~/.npm_cache
+executeTests(){
+	if [ "$(uname)" == "Darwin" ]; then
+	   	echo "Running iOs Tests..."
+		node_modules/gulp/bin/gulp.js iosServerSide
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+	    echo "Running Android Tests..."
+		node_modules/gulp/bin/gulp.js androidServerSide
+	fi
+	echo "Finished Running Tests!"
 
-echo "Extracting tests.zip..."
-unzip tests.zip
+	cp tests/reports/*.xml TEST-all.xml
 
-echo "Installing Project Dependencies..."
-npm install
+	if [ ! -f "TEST-all.xml" ]; then 
+		echo "Error occured during the test run"; 
+		exit 1
+	fi
+}
 
-rm -f tests/reports/*
 
-echo "Running Tests..."
-node_modules/gulp/bin/gulp.js android
+changeNpmCacheLocation
+startAppium
+initializeTestRun
+executeTests
 
-cp tests/reports/*.xml TEST-all.xml
-
-echo "Finished Running Tests!"
