@@ -45,7 +45,7 @@
             }
         },
         "testdroid_ios_server_side": {
-            "launch_url": "http://localhost:4723/wd/hub",
+            "launch_url": "localhost:4723/wd/hub",
             "selenium_port": 4723,
             "selenium_host": "localhost",
             "screenshots": {
@@ -53,10 +53,11 @@
                 "path": ""
             },
             "desiredCapabilities": {
+                "newCommandTimeout":"120",
                 "autoAcceptAlerts": "true",
                 "platformName": "iOS",
                 "browserName": "safari",
-                "deviceName": "Apple Phone"
+                "deviceName": "iPhone 5 8.2"
             }
         },
         "testdroid_android_server_side": {

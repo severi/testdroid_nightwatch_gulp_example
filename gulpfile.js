@@ -11,7 +11,6 @@ function build_client_side(){
   var build_client_side = gulp.src('./nightwatch.json')
   .pipe(inject.replace('<insert_your_apiKey_to_credentials_file>', apiKey))
   .pipe(gulp.dest('./build/'));
-  console.log('moi')
   return build_client_side;
 }
 
