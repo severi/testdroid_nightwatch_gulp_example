@@ -9,19 +9,9 @@ changeNpmCacheLocation(){
 }
 
 startIOSWebkitProxy(){
-	ls -la /Users/Shared/libimobiledevice-binaries-master
-    echo "Starting ios_webkit_debug_proxy for UID ${UDID}" 
-    # ios_webkit_debug_proxy -c ${UDID}:27753 -d &
-    # export DYLD_FALLBACK_LIBRARY_PATH=/Users/Shared/libimobiledevice-binaries-master
-    # export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/Users/Shared/libimobiledevice-binaries-master
-    # printenv
-    echo "brew install libimobiledevice"
+	echo "brew install libimobiledevice"
 	brew install libimobiledevice
-
-    # /opt/appium/bin/ios-webkit-debug-proxy-launcher.js -c ${UDID}:27753 -d > ios-webkit-debug-proxy.log 2>&1 &
-    # /opt/appium/bin/ios-webkit-debug-proxy-launcher.js -c ${UDID}:27753 -d &
-
-    echo "Will start ios_webkit on port: 27753"
+    echo "Will start ios_webkit on port: 27753 for UDID: ${UDID}"
 	node /opt/appium/bin/ios-webkit-debug-proxy-launcher.js -c ${UDID}:27753 -d > ios-webkit-debug-proxy.log 2>&1 &
 }
 
