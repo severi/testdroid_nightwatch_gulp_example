@@ -10,3 +10,4 @@ npm-debug.log
 !/build/.gitkeep
 /tests/reports/*
 !tests/reports/.gitkeep
+/dist/*

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     nightwatch = require('gulp-nightwatch'),
-    inject = require('gulp-inject-string');
+    inject = require('gulp-inject-string'),
+    zip = require('gulp-zip');
 
 // Client Side Execution
 
@@ -54,4 +55,10 @@ gulp.task('iosServerSide', function() {
       configFile: 'build/nightwatch.json',
       cliArgs: [ '--env testdroid_ios_server_side','--verbose']
     }));
+});
+
+gulp.task('zip', function() {
+    return gulp.src(['**','!.credentials.json','!tests/reports/*','!build/*','!dist/*'])
+        .pipe(zip('server_side_package.zip'))
+        .pipe(gulp.dest('dist'));
 });
