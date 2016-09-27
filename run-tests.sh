@@ -11,7 +11,7 @@ changeNpmCacheLocation(){
 startIOSWebkitProxy(){
 	echo "brew install libimobiledevice"
 	brew install libimobiledevice
-    echo "Will start ios_webkit on port: 27753 for UDID: ${UDID}"
+	echo "Will start ios_webkit on port: 27753 for UDID: ${UDID}"
 	node /opt/appium/bin/ios-webkit-debug-proxy-launcher.js -c ${UDID}:27753 -d > ios-webkit-debug-proxy.log 2>&1 &
 }
 
@@ -22,12 +22,12 @@ startAppium(){
 		startIOSWebkitProxy
 		# Create the screenshots directory, if it doesn't exist'
 		mkdir -p .screenshots
-	    echo "Starting Appium on Mac..." 
+		echo "Starting Appium on Mac..." 
 		node /opt/appium/bin/appium.js -U ${UDID} --log-no-colors --log-timestamp --show-ios-log --screenshot-dir "${PWD}/.screenshots" >appium.log 2>&1 &     
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Create the screenshots directory, if it doesn't exist'
 		mkdir -p .screenshots
-	    echo "Starting Appium on Linux..."
+		echo "Starting Appium on Linux..."
 		/opt/appium/appium/bin/appium.js --log-no-colors --log-timestamp --screenshot-dir "${PWD}/.screenshots" >appium.log 2>&1 &
 	else
 		echo "Operating system not supported, exiting..."
@@ -51,7 +51,7 @@ executeTests(){
 	   	echo "Running iOs Tests..."
 		node_modules/gulp/bin/gulp.js iosServerSide
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	    echo "Running Android Tests..."
+		echo "Running Android Tests..."
 		node_modules/gulp/bin/gulp.js androidServerSide
 	fi
 	echo "Finished Running Tests!"
