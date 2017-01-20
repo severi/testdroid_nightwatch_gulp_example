@@ -20,15 +20,12 @@ startAppium(){
 	if [ "$(uname)" == "Darwin" ]; then
 		#startWebkit proxy for web testing
 		startIOSWebkitProxy
-		# Create the screenshots directory, if it doesn't exist'
-		mkdir -p .screenshots
-		echo "Starting Appium on Mac..." 
-		node /opt/appium/bin/appium.js -U ${UDID} --log-no-colors --log-timestamp --show-ios-log --screenshot-dir "${PWD}/.screenshots" >appium.log 2>&1 &     
+		echo "Starting Appium on Mac..."
+		appium-1.4 -U ${UDID} --log-no-colors --log-timestamp --show-ios-log   
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Create the screenshots directory, if it doesn't exist'
-		mkdir -p .screenshots
 		echo "Starting Appium on Linux..."
-		/opt/appium/appium/bin/appium.js --log-no-colors --log-timestamp --screenshot-dir "${PWD}/.screenshots" >appium.log 2>&1 &
+		appium-1.5 --log-no-colors --log-timestamp
 	else
 		echo "Operating system not supported, exiting..."
 		exit 1

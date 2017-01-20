@@ -3,9 +3,9 @@ module.exports = {
     'Basic Test Example' : function (browser) {
         browser
             .url('http://testdroid.com/')
-            .waitForElementVisible('body', 1000)
+            .waitForElementVisible('body', 4000)
             .pause(2000)
-            .assert.title('Mobile App Testing on Thousands of Devices | Bitbar Testing')
+            .assert.title('Mobile App Testing | Testdroid Technology by Bitbar')
             .end();
     }
 };
